@@ -8,12 +8,24 @@ describe('Player', function() {
 describe('Space', function() {
   it("returns the correct x-coordinate", function() {
     var testSpace = new Space(1,2);
-    expect(testSpace.x).to.equal(1);
+    expect(testSpace.x_coordinate).to.equal(1);
   });
 
   it("returns the correct y-coordinate", function() {
     var testSpace = new Space(1,2);
-    expect(testSpace.y).to.equal(2);
+    expect(testSpace.y_coordinate).to.equal(2);
+  });
+
+  it("returns an empty state for a blank space", function() {
+    var testSpace = new Space(1,2);
+    expect(testSpace.getState()).to.be.empty;
+  });
+
+  it("returns a mark in an occupied space", function() {
+    var testPlayer = new Player("X");
+    var testSpace = new Space(1,2);
+    testSpace.setMark(testPlayer);
+    expect(testSpace.getState()).to.equal(testPlayer);
   })
 
   it("lets a player mark a space", function() {
