@@ -35,12 +35,21 @@ describe('Space', function() {
       expect(testSpace.getMark()).to.equal(testPlayer);
    });
 
-   it("assigns a mark to the correct space", function() {
-       var testPlayer = new Player("X");
-       var otherPlayer = new Player("O");
-       var testSpace = new Space(1,2);
-       testSpace.setMark(testPlayer);
-       expect(testSpace.getMark()).to.not.equal(otherPlayer);
-    });
+  it("assigns a mark to the correct space", function() {
+     var testPlayer = new Player("X");
+     var otherPlayer = new Player("O");
+     var testSpace = new Space(1,2);
+     testSpace.setMark(testPlayer);
+     expect(testSpace.getMark()).to.not.equal(otherPlayer);
+  });
+});
+
+
+
+describe('Board', function() {
+  it("creates 9 spaces when it is initialized", function() {
+    var testBoard = new Board();
+    expect(testBoard.length).to.equal(9);
+   });
 
 });
