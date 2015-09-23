@@ -44,12 +44,18 @@ describe('Space', function() {
   });
 });
 
-
-
 describe('Board', function() {
-  it("creates 9 spaces when it is initialized", function() {
-    var testBoard = new Board();
-    expect(testBoard.length).to.equal(9);
+  it("creates the correct number of rows when it is initialized", function() {
+    var testBoard = new Board(9);
+    var board = testBoard.create();
+    expect(board.length).to.eql(3);
+    expect(board[0].length).to.eql(3);
    });
+
+  it("finds a space given its coordinates", function() {
+    // var testBoard = new Board(9);
+    // var board = testBoard.create();
+    // expect(board.findSpace(2,2)).to.eql(new Space(2,2));
+  })
 
 });
