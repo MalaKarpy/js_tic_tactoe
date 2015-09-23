@@ -25,10 +25,26 @@ Space.prototype.setMark = function(mark) {
 }
 
 Space.prototype.getMark = function() {
-  return this.mark; // or do this.state = mark, return this, space= space.setMark(x)
+  return this.mark;
 }
 
-function Board() {
-  var board = [{x:1,y:1}, {x:1,y:2}, {x:1,y:3}, {x:2,y:1}, {x:2,y:2}, {x:2,y:3}, {x:3,y:1}, {x:3,y:2}, {x:3,y:3}];
-  return board;
+function Board(spaces) {
+  this.spaces = spaces;
+  this.grid = [];
+}
+
+Board.prototype.create = function() {
+  var x,y;
+  var rows = Math.sqrt(this.spaces);
+  for(x = 0; x < rows; x++){
+    this.grid[x] = [];
+    for(y = 0; y < rows; y++){
+      this.grid[x][y] = new Space(x + 1, y + 1);
+    }
+  }
+  return this.grid;
+};
+
+Board.prototype.findSpace = function(x_coordinate, y_coordinate) {
+  return this.board[x_coordinate][y_coordinate];
 }
